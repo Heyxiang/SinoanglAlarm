@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/alarm_bk">
+
+    <ScrollView
+        android:layout_width="@dimen/sw600_600dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@color/font_white_22"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/sw600_20dp"
+            android:paddingTop="@dimen/sw600_20dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sw600_100dp"
+                android:paddingLeft="@dimen/sw600_20dp"
+                android:paddingRight="@dimen/sw600_20dp">
+
+                <ImageView
+                    android:id="@+id/iv_1"
+                    android:layout_width="@dimen/sw600_50dp"
+                    android:layout_height="@dimen/sw600_50dp"
+                    android:src="@mipmap/alarm_lab_donghua" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sw600_50dp"
+                    android:layout_marginLeft="@dimen/sw600_5dp"
+                    android:layout_toRightOf="@+id/iv_1"
+                    android:gravity="center_vertical"
+                    android:text="@string/naozhongdonghua"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp" />
+
+                <ImageView
+                    android:id="@+id/iv_header"
+                    android:layout_width="@dimen/sw600_100dp"
+                    android:layout_height="@dimen/sw600_100dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/sw600_20dp"
+                    android:src="@mipmap/alarm_head_set4" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sw600_2dp"
+                android:background="@color/font_white_f" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/sw600_50dp"
+                    android:layout_height="@dimen/sw600_50dp"
+                    android:layout_marginLeft="@dimen/sw600_20dp"
+                    android:layout_marginTop="@dimen/sw600_10dp"
+                    android:src="@mipmap/alarm_lab_time" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sw600_50dp"
+                    android:layout_marginLeft="@dimen/sw600_5dp"
+                    android:layout_marginTop="@dimen/sw600_10dp"
+                    android:layout_toRightOf="@+id/iv_2"
+                    android:gravity="center_vertical"
+                    android:text="@string/naozhongshijian"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp" />
+            </LinearLayout>
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:timePickerMode="spinner" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sw600_2dp"
+                android:background="@color/font_white_f" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sw600_10dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/iv_2"
+                    android:layout_width="@dimen/sw600_50dp"
+                    android:layout_height="@dimen/sw600_50dp"
+                    android:layout_marginLeft="@dimen/sw600_20dp"
+                    android:src="@mipmap/alarm_lab_repeat" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sw600_50dp"
+                    android:layout_marginLeft="@dimen/sw600_5dp"
+                    android:layout_toRightOf="@+id/iv_2"
+                    android:gravity="center_vertical"
+                    android:text="@string/rili"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp" />
+
+                <TextView
+                    android:id="@+id/tv_spec_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sw600_40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/sw600_45dp"
+                    android:background="@drawable/bk_yuanjiao"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/sw600_20dp"
+                    android:paddingRight="@dimen/sw600_20dp"
+                    android:text="Not use specific date alarm"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_20sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_spectime"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="特定时间"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/sw600_40dp"
+                    android:layout_marginRight="@dimen/sw600_40dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/sw600_10dp">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <CheckBox
+                        android:id="@+id/cb_mo"
+                        android:layout_width="@dimen/sw600_60dp"
+                        android:layout_height="@dimen/sw600_60dp"
+                        android:background="@drawable/cb_alarm_rep"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:tag="1"
+                        android:text="Mo"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <CheckBox
+                        android:id="@+id/cb_tu"
+                        android:layout_width="@dimen/sw600_60dp"
+                        android:layout_height="@dimen/sw600_60dp"
+                        android:background="@drawable/cb_alarm_rep"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:tag="2"
+                        android:text="Tu"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <CheckBox
+                        android:id="@+id/cb_we"
+                        android:layout_width="@dimen/sw600_60dp"
+                        android:layout_height="@dimen/sw600_60dp"
+                        android:background="@drawable/cb_alarm_rep"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:tag="3"
+                        android:text="We"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <CheckBox
+                        android:id="@+id/cb_th"
+                        android:layout_width="@dimen/sw600_60dp"
+                        android:layout_height="@dimen/sw600_60dp"
+                        android:background="@drawable/cb_alarm_rep"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:tag="4"
+                        android:text="Th"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <CheckBox
+                        android:id="@+id/cb_fr"
+                        android:layout_width="@dimen/sw600_60dp"
+                        android:layout_height="@dimen/sw600_60dp"
+                        android:background="@drawable/cb_alarm_rep"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:tag="5"
+                        android:text="Fr"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <CheckBox
+                        android:id="@+id/cb_sa"
+                        android:layout_width="@dimen/sw600_60dp"
+                        android:layout_height="@dimen/sw600_60dp"
+                        android:background="@drawable/cb_alarm_rep"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:tag="6"
+                        android:text="Sa"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <CheckBox
+                        android:id="@+id/cb_su"
+                        android:layout_width="@dimen/sw600_60dp"
+                        android:layout_height="@dimen/sw600_60dp"
+                        android:background="@drawable/cb_alarm_rep"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:tag="0"
+                        android:text="Su"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sw600_2dp"
+                android:background="@color/font_white_f" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/sw600_5dp"
+                android:paddingLeft="@dimen/sw600_20dp"
+                android:paddingRight="@dimen/sw600_20dp"
+                android:paddingTop="@dimen/sw600_5dp">
+
+                <ImageView
+                    android:layout_width="@dimen/sw600_40dp"
+                    android:layout_height="@dimen/sw600_40dp"
+                    android:src="@mipmap/alarm_lab_mp3" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sw600_40dp"
+                    android:layout_marginLeft="@dimen/sw600_5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/mp3"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp" />
+
+                <TextView
+                    android:id="@+id/tv_muName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="right"
+                    android:paddingLeft="@dimen/sw600_20dp"
+                    android:paddingRight="@dimen/sw600_20dp"
+                    android:text="音乐.MP3"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp" />
+
+                <ImageView
+                    android:id="@+id/iv_selectMusic"
+                    android:layout_width="@dimen/sw600_60dp"
+                    android:layout_height="@dimen/sw600_60dp"
+                    android:layout_marginRight="@dimen/sw600_45dp"
+                    android:src="@drawable/btn_alarm_edit" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sw600_2dp"
+                android:layout_marginLeft="@dimen/sw600_40dp"
+                android:layout_marginRight="@dimen/sw600_40dp"
+                android:background="@color/font_white_f" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/sw600_5dp"
+                android:paddingLeft="@dimen/sw600_20dp"
+                android:paddingRight="@dimen/sw600_20dp"
+                android:paddingTop="@dimen/sw600_5dp">
+
+                <ImageView
+                    android:layout_width="@dimen/sw600_40dp"
+                    android:layout_height="@dimen/sw600_40dp"
+                    android:src="@mipmap/alarm_lab_type" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sw600_40dp"
+                    android:layout_marginLeft="@dimen/sw600_5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/type"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/cb_zhendong"
+                    android:layout_width="@dimen/sw600_60dp"
+                    android:layout_height="@dimen/sw600_60dp"
+                    android:layout_marginRight="@dimen/sw600_45dp"
+                    android:background="@drawable/cb_alarm_zhendong"
+                    android:button="@null" />
+
+                <CheckBox
+                    android:id="@+id/cb_vol"
+                    android:layout_width="@dimen/sw600_60dp"
+                    android:layout_height="@dimen/sw600_60dp"
+                    android:layout_marginRight="@dimen/sw600_45dp"
+                    android:background="@drawable/cb_alarm_vol"
+                    android:button="@null"
+                    android:checked="true" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sw600_2dp"
+                android:layout_marginLeft="@dimen/sw600_40dp"
+                android:layout_marginRight="@dimen/sw600_40dp"
+                android:background="@color/font_white_f" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/sw600_5dp"
+                android:paddingLeft="@dimen/sw600_20dp"
+                android:paddingRight="@dimen/sw600_10dp"
+                android:paddingTop="@dimen/sw600_5dp">
+
+                <ImageView
+                    android:layout_width="@dimen/sw600_40dp"
+                    android:layout_height="@dimen/sw600_40dp"
+                    android:src="@mipmap/alarm_lab_volume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sw600_40dp"
+                    android:layout_marginLeft="@dimen/sw600_5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/volume"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sw600_60dp"
+                    android:layout_weight="1" />
+
+                <SeekBar
+                    android:id="@+id/volumeBar"
+                    style="@style/Widget.SeekBar.Alarm"
+                    android:layout_width="@dimen/sw600_200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/sw600_45dp"
+                    android:max="100"
+                    android:progress="50" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sw600_2dp"
+                android:layout_marginLeft="@dimen/sw600_40dp"
+                android:layout_marginRight="@dimen/sw600_40dp"
+                android:background="@color/font_white_f" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/sw600_20dp">
+
+                <TextView
+                    android:id="@+id/iv_save"
+                    android:layout_width="@dimen/sw600_135dp"
+                    android:layout_height="@dimen/sw600_60dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:background="@drawable/btn_alarm_save"
+                    android:text="@string/save"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/sw600_50dp"
+        android:layout_height="@dimen/sw600_50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/sw600_20dp"
+        android:layout_marginTop="@dimen/sw600_20dp"
+        android:background="@drawable/first_store_back" />
+
+
+    <ImageView
+        android:id="@+id/iv_bulr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:visibility="gone" />
+</RelativeLayout>

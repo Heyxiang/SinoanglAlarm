@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Sino_Alarm</string>
+    <string name="delete_my_tag_message">Confirm to delete?</string>
+
+    <string name="naozhongdonghua">Alarm Cartoon</string>
+    <string name="naozhongshijian">Time</string>
+    <string name="rili">Repeat</string>
+    <string name="mp3">Mp3</string>
+    <string name="type">Type</string>
+    <string name="volume">Volume</string>
+    <string name="save">Save</string>
+    <string name="timer">Timer</string>
+    <string name="alarm">Alarm</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="details">See details</string>
+    <string name="choose">Choose</string>
+    <string name="notime">The timer cannot be set to 0</string>
+    <string name="noAlarm">There’s no alarm. Please add new alarm!</string>
+    <string name="guanbi">Turn Off</string>
+    <string name="xiaoshui">" (～ o ～)~zZ"</string>
+    <string name="guoqi">This date already passed</string>
+    <string name="xiaoyuyifen">Less than a minute</string>
+
+    <string name="z_day">day</string>
+    <string name="z_hour">hour</string>
+    <string name="z_min">minute</string>
+    <string name="z_second">Second</string>
+    <string name="z_days">days</string>
+    <string name="z_hours">hours</string>
+    <string name="z_mins">minutes</string>
+    <string name="z_seconds">Seconds</string>
+    <string name="shengyu">Remaining</string>
+
+    <string name="addsucce">Add success!</string>
+    <string name="wuxiaoriqi">Invalid date!</string>
+
+
+    <!--铃声-->
+    <string name="alarm_ls1">City Morning</string>
+    <string name="alarm_ls2">Jingle Bells</string>
+    <string name="alarm_ls3">Here We Go</string>
+    <string name="alarm_ls4">Naughty Baby</string>
+    <string name="alarm_ls5">Lavender\'s Blue</string>
+    <string name="alarm_ls6">Lovely Day</string>
+    <string name="alarm_ls7">Rock a Bye Baby</string>
+    <string name="alarm_ls8">Dream Of A Secret</string>
+    <string name="alarm_ls9">Let\'s Have Some Fun</string>
+    <string name="alarm_ls10">Oh My Darling</string>
+    <string name="alarm_ls11">Little Birds Song</string>
+    <string name="alarm_ls12">Merry Christmas</string>
+    <string name="alarm_ls13">Roll Over</string>
+    <string name="alarm_ls14">Pop! Go！</string>
+
+</resources>

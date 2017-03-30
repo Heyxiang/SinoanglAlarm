@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 浅绿 -->
+    <!-- 暗绿 -->
+    <color name="green_6e">#6ba53a</color>
+
+    <!-- 橘黄 -->
+    <!-- ? -->
+    <color name="font_zong">#ad6426</color>
+    <color name="font_zong_22">#32ad6426</color>
+    <!-- 白色 -->
+    <color name="font_white">#ffffff</color>
+    <color name="font_white_f">#9fFFFFFF</color>
+    <color name="font_white_22">#32FFFFFF</color>
+    <!-- 黑色 -->
+</resources>

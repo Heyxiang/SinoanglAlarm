@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/alarm_bk_sim"
+    android:clipChildren="false">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/sw600_30dp"
+        android:textSize="@dimen/sw600_35sp"
+        android:textColor="@color/font_white"
+        android:text="@string/naozhongdonghua" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_list"
+        android:layout_width="@dimen/sw600_240dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:clipChildren="false"
+        android:overScrollMode="never" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sw600_220dp"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/alarm_bk_bown" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/sw600_40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/iv_details"
+            android:layout_width="@dimen/sw600_130dp"
+            android:layout_height="@dimen/sw600_140dp"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sw600_25sp"
+            android:maxLines="1"
+            android:gravity="bottom|center_horizontal"
+            android:text="@string/details"
+            android:background="@drawable/btn_alarm_detail" />
+
+        <TextView
+            android:id="@+id/iv_choose"
+            android:layout_width="@dimen/sw600_130dp"
+            android:layout_height="@dimen/sw600_140dp"
+            android:layout_marginLeft="@dimen/sw600_100dp"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sw600_25sp"
+            android:gravity="bottom|center_horizontal"
+            android:text="@string/choose"
+            android:background="@drawable/btn_alarm_chose" />
+    </LinearLayout>
+
+
+</RelativeLayout>

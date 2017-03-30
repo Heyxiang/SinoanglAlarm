@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Sino_Alarm</string>
+    <string name="delete_my_tag_message">确认删除吗</string>
+
+    <string name="naozhongdonghua">闹钟动画</string>
+    <string name="naozhongshijian">时间</string>
+    <string name="rili">重复设定</string>
+    <string name="mp3">闹钟铃声</string>
+    <string name="type">闹钟类型</string>
+    <string name="volume">音量</string>
+    <string name="save">保存</string>
+    <string name="timer">计时器</string>
+    <string name="alarm">闹钟</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="details">查看详情</string>
+    <string name="choose">选择</string>
+    <string name="notime">计时器不能设定为0</string>
+    <string name="noAlarm">当前没有闹钟，请添加！</string>
+    <string name="guanbi">关闭</string>
+    <string name="xiaoshui">" (～ o ～)~zZ"</string>
+    <string name="guoqi">Be overdue</string>
+    <string name="xiaoyuyifen">少于一分钟</string>
+
+    <string name="z_day">天</string>
+    <string name="z_hour">小时</string>
+    <string name="z_min">分钟</string>
+    <string name="z_second">秒</string>
+    <string name="z_days">天</string>
+    <string name="z_hours">小时</string>
+    <string name="z_mins">分钟</string>
+    <string name="z_seconds">秒</string>
+    <string name="shengyu">剩余</string>
+
+    <string name="addsucce">添加成功</string>
+    <string name="wuxiaoriqi">失效日期!</string>
+
+
+    <!--铃声-->
+    <string name="alarm_ls1">城市清晨</string>
+    <string name="alarm_ls2">铃儿响叮当</string>
+    <string name="alarm_ls3">快乐出门去</string>
+    <string name="alarm_ls4">淘气宝贝</string>
+    <string name="alarm_ls5">蓝色回忆</string>
+    <string name="alarm_ls6">开始美好的一天</string>
+    <string name="alarm_ls7">摇摆歌</string>
+    <string name="alarm_ls8">奇幻梦境</string>
+    <string name="alarm_ls9">快乐大家一起来</string>
+    <string name="alarm_ls10">我的宝贝</string>
+    <string name="alarm_ls11">小鸟在歌唱</string>
+    <string name="alarm_ls12">圣诞变奏曲</string>
+    <string name="alarm_ls13">翻滚吧，阿信</string>
+    <string name="alarm_ls14">加油起床冲冲冲!</string>
+
+</resources>

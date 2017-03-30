@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/alarm_bk">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/sw600_30dp"
+        android:text="@string/timer"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/sw600_35sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <com.sinoangel.saz_alarm.ZCircularSeekBar
+            android:id="@+id/zCircularSeekBar"
+            android:layout_width="@dimen/sw600_390dp"
+            android:layout_height="@dimen/sw600_390dp" />
+
+        <TextView
+            android:id="@+id/tv_time_val"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="00:00"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sw600_55sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/sw600_10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/iv_addtime1"
+            android:layout_width="@dimen/sw600_60dp"
+            android:layout_height="@dimen/sw600_60dp"
+            android:background="@drawable/btn_alarm_number1"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sw600_25dp" />
+
+        <TextView
+            android:id="@+id/iv_addtime2"
+            android:layout_width="@dimen/sw600_60dp"
+            android:layout_height="@dimen/sw600_60dp"
+            android:layout_marginLeft="@dimen/sw600_20dp"
+            android:background="@drawable/btn_alarm_number1"
+            android:gravity="center"
+            android:text="5"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sw600_25dp" />
+
+        <TextView
+            android:id="@+id/iv_addtime3"
+            android:layout_width="@dimen/sw600_60dp"
+            android:layout_height="@dimen/sw600_60dp"
+            android:layout_marginLeft="@dimen/sw600_20dp"
+            android:background="@drawable/btn_alarm_number1"
+            android:gravity="center"
+            android:text="10"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sw600_25dp" />
+
+        <TextView
+            android:id="@+id/iv_addtime4"
+            android:layout_width="@dimen/sw600_60dp"
+            android:layout_height="@dimen/sw600_60dp"
+            android:layout_marginLeft="@dimen/sw600_20dp"
+            android:background="@drawable/btn_alarm_number1"
+            android:gravity="center"
+            android:text="30"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sw600_25dp" />
+
+        <TextView
+            android:id="@+id/iv_addtime5"
+            android:layout_width="@dimen/sw600_60dp"
+            android:layout_height="@dimen/sw600_60dp"
+            android:layout_marginLeft="@dimen/sw600_20dp"
+            android:background="@drawable/btn_alarm_number1"
+            android:gravity="center"
+            android:text="60"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/sw600_25dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_reset"
+        android:layout_width="@dimen/sw600_80dp"
+        android:layout_height="@dimen/sw600_80dp"
+        android:layout_alignTop="@+id/rl1"
+        android:layout_toLeftOf="@+id/rl1"
+        android:src="@drawable/btn_alarm_reset" />
+
+    <CheckBox
+        android:id="@+id/rb_zdls"
+        android:layout_width="@dimen/sw600_80dp"
+        android:layout_height="@dimen/sw600_80dp"
+        android:layout_alignTop="@+id/rl1"
+        android:layout_toRightOf="@+id/rl1"
+        android:background="@mipmap/alarm_anmi_lz1"
+        android:button="@null" />
+
+    <TextView
+        android:id="@+id/iv_cancel"
+        android:layout_width="@dimen/sw600_140dp"
+        android:layout_height="@dimen/sw600_140dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/btn_alarm_cancel"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/cancel"
+        android:paddingRight="@dimen/sw600_25dp"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/sw600_18dp" />
+
+    <TextView
+        android:id="@+id/iv_okay"
+        android:layout_width="@dimen/sw600_140dp"
+        android:layout_height="@dimen/sw600_140dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/btn_alarm_okay"
+        android:gravity="bottom|center_horizontal"
+        android:text="@string/ok"
+        android:paddingLeft="@dimen/sw600_25dp"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/sw600_18dp" />
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="Widget.SeekBar.Alarm" parent="@android:style/Widget.SeekBar">
+        <item name="android:maxHeight">@dimen/sw600_7dp</item>
+        <item name="android:progressDrawable">@drawable/seekbar_alarm</item>
+        <item name="android:thumb">@drawable/bar_yuan</item>
+        <item name="android:thumbOffset">3.0dip</item>
+    </style>
+
+    <!-- dialog样式 -->
+    <style name="customDialog" parent="@android:style/Theme.DeviceDefault.Dialog">
+        <!--窗口弹出效果-->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!-- 设置未浮动窗口 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置无边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置完全透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 设置屏幕变暗 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="Theme.picker" parent="AppTheme">
+        <item name="android:editTextStyle">@style/Widget.EditText.White</item>
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+    <style name="Widget.EditText.White" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/font_white</item>
+        <item name="android:textSize">@dimen/sw600_25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

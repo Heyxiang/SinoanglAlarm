@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item
+        android:drawable="@mipmap/alarm_anmi_lz7"
+        android:duration="50" />
+    <item
+        android:drawable="@mipmap/alarm_anmi_lz6"
+        android:duration="50" />
+    <item
+        android:drawable="@mipmap/alarm_anmi_lz5"
+        android:duration="50" />
+    <item
+        android:drawable="@mipmap/alarm_anmi_lz4"
+        android:duration="50" />
+    <item
+        android:drawable="@mipmap/alarm_anmi_lz3"
+        android:duration="50" />
+    <item
+        android:drawable="@mipmap/alarm_anmi_lz2"
+        android:duration="50" />
+    <item
+        android:drawable="@mipmap/alarm_anmi_lz1"
+        android:duration="50" />
+</animation-list>

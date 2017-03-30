@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Sino_Alarm</string>
+    <string name="delete_my_tag_message">Hakikisha unataka kufuta?</string>
+
+    <string name="naozhongdonghua">Kibonzo cha Alamu</string>
+    <string name="naozhongshijian">Muda wa Alamu</string>
+    <string name="rili">Rudia</string>
+    <string name="mp3">Mlio wa Alamu</string>
+    <string name="type">Aina</string>
+    <string name="volume">Kiwango</string>
+    <string name="save">Hifadhi</string>
+    <string name="timer">Kipima wakati</string>
+    <string name="alarm">Kengele</string>
+    <string name="cancel">Katisha</string>
+    <string name="ok">Sawa</string>
+    <string name="details">Kihakiki</string>
+    <string name="choose">Teua</string>
+    <string name="notime">Timer hayawezi kuweka 0</string>
+    <string name="noAlarm">Hakuna alamu .Tafadhali ongeza alamu!</string>
+    <string name="guanbi">Simamisha</string>
+    <string name="xiaoshui">" (～ o ～)~zZ"</string>
+    <string name="guoqi">Alamu hii tayari ishapita</string>
+    <string name="xiaoyuyifen">Chini ya dakika moja</string>
+
+    <string name="z_day">siku</string>
+    <string name="z_hour">saa</string>
+    <string name="z_min">Dak</string>
+    <string name="z_second">sekunde</string>
+    <string name="z_days">siku</string>
+    <string name="z_hours">masaa</string>
+    <string name="z_mins">Dak</string>
+    <string name="z_seconds">sekunde</string>
+    <string name="shengyu">Iliyobaki</string>
+
+    <string name="addsucce">Add success!</string>
+    <string name="wuxiaoriqi">Tarehe batili</string>
+
+
+    <!--铃声-->
+    <string name="alarm_ls1">City Morning</string>
+    <string name="alarm_ls2">Jingle Bells</string>
+    <string name="alarm_ls3">Here We Go</string>
+    <string name="alarm_ls4">Naughty Baby</string>
+    <string name="alarm_ls5">Lavender\'s Blue</string>
+    <string name="alarm_ls6">Lovely Day</string>
+    <string name="alarm_ls7">Rock a Bye Baby</string>
+    <string name="alarm_ls8">Dream Of A Secret</string>
+    <string name="alarm_ls9">Let\'s Have Some Fun</string>
+    <string name="alarm_ls10">Oh My Darling</string>
+    <string name="alarm_ls11">Little Birds Song</string>
+    <string name="alarm_ls12">Merry Christmas</string>
+    <string name="alarm_ls13">Roll Over</string>
+    <string name="alarm_ls14">Pop! Go！</string>
+
+</resources>

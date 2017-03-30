@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Sino_Alarm</string>
+    <string name="delete_my_tag_message">حذف را تایید می کنید؟</string>
+
+    <string name="naozhongdonghua">کارتون موزیکال</string>
+    <string name="naozhongshijian">زمان هشدار</string>
+    <string name="rili">تکرار</string>
+    <string name="mp3">زنگ هشدار</string>
+    <string name="type">نوع</string>
+    <string name="volume">میزان صدا</string>
+    <string name="save">ذخیره</string>
+    <string name="timer">تایمر</string>
+    <string name="alarm">هشدار</string>
+    <string name="cancel">لغو</string>
+    <string name="ok">تاييد</string>
+    <string name="details">پیش‌نمایش</string>
+    <string name="choose">انتخاب کنید</string>
+    <string name="notime">تایمر می تواند به 0 تنظیم شود</string>
+    <string name="noAlarm">زنگ هشدای وجود ندارد، لطفا زنگ هشدار جدیدی اضافه کنید</string>
+    <string name="guanbi">توقف</string>
+    <string name="xiaoshui">" (～ o ～)~zZ"</string>
+    <string name="guoqi">زمان این زنگ هشدار به پایان رسیده است</string>
+    <string name="xiaoyuyifen">کمتر از یک دقیقه</string>
+
+    <string name="z_day">روز</string>
+    <string name="z_hour">ساعت</string>
+    <string name="z_min">دقیقه</string>
+    <string name="z_second">ثانیه</string>
+    <string name="z_days">روزها</string>
+    <string name="z_hours">ساعت ها</string>
+    <string name="z_mins">دقیقه</string>
+    <string name="z_seconds">ثانیه</string>
+    <string name="shengyu">باقی مانده</string>
+
+    <string name="addsucce">Add success!</string>
+    <string name="wuxiaoriqi">تاریخ نامعتبر</string>
+
+
+    <!--铃声-->
+    <string name="alarm_ls1">صبح شهر</string>
+    <string name="alarm_ls2">"صدای جرنگ جرنگ "</string>
+    <string name="alarm_ls3">مقصد اینجاست</string>
+    <string name="alarm_ls4">نوزاد شلوغ</string>
+    <string name="alarm_ls5">آبی اسطوخودوس</string>
+    <string name="alarm_ls6">روز دوست داشتنی</string>
+    <string name="alarm_ls7">Rock a Bye Baby</string>
+    <string name="alarm_ls8">آرزوی یک راز</string>
+    <string name="alarm_ls9">بیایید کمی لذت ببریم</string>
+    <string name="alarm_ls10">اوه عزیزم</string>
+    <string name="alarm_ls11">آهنگ پرندگان کوچک</string>
+    <string name="alarm_ls12">کریسمس مبارک</string>
+    <string name="alarm_ls13">Roll Over</string>
+    <string name="alarm_ls14">Pop! Go！</string>
+
+</resources>

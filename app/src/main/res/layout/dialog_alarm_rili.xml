@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="@dimen/sw600_390dp"
+            android:layout_height="@dimen/sw600_450dp"
+            android:background="@mipmap/alarm_ri_bk"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/sw600_10dp"
+            android:paddingRight="@dimen/sw600_10dp"
+            android:paddingTop="@dimen/sw600_60dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_lift"
+                    android:layout_width="@dimen/sw600_19dp"
+                    android:layout_height="@dimen/sw600_35dp"
+                    android:layout_marginLeft="@dimen/sw600_10dp"
+                    android:src="@mipmap/alarm_ri_lift" />
+
+                <TextView
+                    android:id="@+id/tv_riqi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/font_white"
+                    android:textSize="@dimen/sw600_25sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_right"
+                    android:layout_width="@dimen/sw600_19dp"
+                    android:layout_height="@dimen/sw600_35dp"
+                    android:layout_marginRight="@dimen/sw600_10dp"
+                    android:src="@mipmap/alarm_ri_right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/sw600_340dp"
+                android:layout_height="@dimen/sw600_45dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/sw600_20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/sw600_10dp"
+                android:paddingRight="@dimen/sw600_14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mo"
+                    android:textSize="@dimen/sw600_20sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tu"
+                    android:textSize="@dimen/sw600_20sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="We"
+                    android:textSize="@dimen/sw600_20sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Th"
+                    android:textSize="@dimen/sw600_20sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fr"
+                    android:textSize="@dimen/sw600_20sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sa"
+                    android:textSize="@dimen/sw600_20sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Su"
+                    android:textSize="@dimen/sw600_20sp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/vp_calendar"
+                android:layout_width="@dimen/sw600_340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_ok"
+                android:layout_width="@dimen/sw600_80dp"
+                android:layout_height="@dimen/sw600_80dp"
+                android:src="@drawable/btn_alarm_ok" />
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="@dimen/sw600_80dp"
+                android:layout_height="@dimen/sw600_80dp"
+                android:layout_marginLeft="@dimen/sw600_100dp"
+                android:src="@drawable/btn_alarm_close" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

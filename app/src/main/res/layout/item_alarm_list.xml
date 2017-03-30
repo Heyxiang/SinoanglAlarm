@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/rl_smbox"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sw600_177dp"
+        android:layout_marginLeft="@dimen/sw600_70dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sw600_177dp"
+                android:layout_alignParentRight="true"
+                android:layout_weight="1"
+                android:background="@mipmap/alarm_item_lift"
+                android:orientation="vertical"
+                android:scaleType="fitXY">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sw600_85dp"
+                    android:layout_marginLeft="@dimen/sw600_28dp"
+                    android:layout_marginTop="@dimen/sw600_16dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_type"
+                        android:layout_width="@dimen/sw600_101dp"
+                        android:layout_height="@dimen/sw600_85dp"
+                        android:layout_marginLeft="@dimen/sw600_35dp"
+                        android:src="@mipmap/alarm_zhengwu" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/sw600_10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_APM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AM"
+                            android:textColor="@color/font_zong"
+                            android:textSize="@dimen/sw600_25sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="88:88"
+                            android:textColor="@color/font_zong"
+                            android:textSize="@dimen/sw600_40sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/sw600_10dp"
+                        android:gravity="bottom"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/sw600_20dp">
+
+
+                        <ImageView
+                            android:id="@+id/iv_state"
+                            android:layout_width="@dimen/sw600_25dp"
+                            android:layout_height="@dimen/sw600_25dp" />
+
+                        <!--<ImageView-->
+                        <!--android:id="@+id/iv_vol"-->
+                        <!--android:layout_width="@dimen/sw600_25dp"-->
+                        <!--android:layout_height="@dimen/sw600_25dp"-->
+                        <!--android:layout_marginLeft="@dimen/sw600_10dp"-->
+                        <!--android:src="@mipmap/alarm_xiangling" />-->
+
+                        <ProgressBar
+                            android:id="@+id/pb_vol"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/sw600_7dp"
+                            android:layout_marginBottom="@dimen/sw600_9dp"
+                            android:layout_marginLeft="@dimen/sw600_5dp"
+                            android:layout_marginRight="@dimen/sw600_5dp"
+                            android:layout_weight="1"
+                            android:max="100"
+                            android:progressDrawable="@drawable/seekbar_alarm_bown" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sw600_28dp"
+                    android:layout_marginLeft="@dimen/sw600_85dp">
+
+                    <TextView
+                        android:id="@+id/tv_loop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mo,To,We"
+                        android:textColor="@color/font_zong"
+                        android:textSize="@dimen/sw600_20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_btn"
+                android:layout_width="@dimen/sw600_177dp"
+                android:layout_height="@dimen/sw600_177dp"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/alarm_item_right">
+
+                <ImageView
+                    android:id="@+id/iv_header"
+                    android:layout_width="@dimen/sw600_120dp"
+                    android:layout_height="@dimen/sw600_120dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/alarm_head_jishi" />
+
+                <ProgressBar
+                    android:id="@+id/pb_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="@dimen/sw600_165dp"
+                    android:layout_height="@dimen/sw600_165dp"
+                    android:layout_centerInParent="true"
+                    android:max="360"
+                    android:progress="360"
+                    android:progressDrawable="@drawable/circle_progress_bar_black" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="@dimen/sw600_80dp"
+        android:layout_height="@dimen/sw600_80dp"
+        android:layout_gravity="center_vertical"
+        android:padding="@dimen/sw600_5dp"
+        android:src="@drawable/btn_alarm_delete" />
+</LinearLayout>
