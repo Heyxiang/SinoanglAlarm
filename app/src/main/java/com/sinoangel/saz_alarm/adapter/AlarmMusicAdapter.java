@@ -56,7 +56,7 @@ public class AlarmMusicAdapter extends RecyclerView.Adapter<AlarmMusicAdapter.Vi
         if (position == selectIndex) {
             holder.box.setSelected(true);
             holder.iv_static.setVisibility(View.VISIBLE);
-            mp = MediaPlayer.create(MyApplication.getInstance(), lsraw[8]);
+            mp = MediaPlayer.create(MyApplication.getInstance(), lsraw[selectIndex]);
             lastView = holder;
         }
     }

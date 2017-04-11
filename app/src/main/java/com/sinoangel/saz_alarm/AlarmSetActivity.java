@@ -73,6 +73,7 @@ public class AlarmSetActivity extends MyBaseActivity implements View.OnClickList
             ab = (AlarmBean) getIntent().getExtras().get("DATA");
             setData();
         }
+
     }
 
     private void setData() {
@@ -174,6 +175,11 @@ public class AlarmSetActivity extends MyBaseActivity implements View.OnClickList
         cb_fr = (CheckBox) findViewById(R.id.cb_fr);
         cb_sa = (CheckBox) findViewById(R.id.cb_sa);
         cb_su = (CheckBox) findViewById(R.id.cb_su);
+
+        Calendar calendar = Calendar.getInstance();
+        dyear = calendar.get(Calendar.YEAR);
+        dmonth = calendar.get(Calendar.MONTH) + 1;
+        dday = calendar.get(Calendar.DAY_OF_MONTH)+1;
 
         tv_muName.setText(AlarmMusicAdapter.lsname[musicId]);
     }
@@ -331,7 +337,6 @@ public class AlarmSetActivity extends MyBaseActivity implements View.OnClickList
         View contentView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.dialog_alarm_rili, null);
         dialog.setContentView(contentView);
 
-//        mViewPager = (RelativeLayout) contentView.findViewById(R.id.vp_calendar);
         ImageView iv_ok = (ImageView) contentView.findViewById(R.id.iv_ok);
         ImageView iv_close = (ImageView) contentView.findViewById(R.id.iv_close);
         ImageView iv_lift = (ImageView) contentView.findViewById(R.id.iv_lift);
@@ -352,16 +357,7 @@ public class AlarmSetActivity extends MyBaseActivity implements View.OnClickList
         dialog.show();
     }
 
-    //    CalendarViewAdapter<CalendarCardAlarm> adapter;
-//    private CalendarCardAlarm[] mShowViews;
     private int dyear, dmonth, dday;
-
-//    /**
-//     * 计算方向
-//     *
-//     * @param arg0
-//     */
-//    private int mCurrentIndex = 498;
 
     @Override
     public void clickDate(CustomDate date) {
@@ -459,5 +455,4 @@ public class AlarmSetActivity extends MyBaseActivity implements View.OnClickList
             iv_bulr.setVisibility(View.GONE);
         }
     }
-
 }

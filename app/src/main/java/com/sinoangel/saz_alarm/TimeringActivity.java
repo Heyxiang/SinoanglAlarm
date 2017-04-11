@@ -153,11 +153,16 @@ public class TimeringActivity extends MyBaseActivity {
             if (mPlayer != null)
                 switch (state) {
                     case TelephonyManager.CALL_STATE_IDLE: //空闲
-                        if (!mPlayer.isPlaying())
+                        if (mPlayer != null && !mPlayer.isPlaying())
                             mPlayer.start();
+                        if (vibrator != null)
+                            vibrator.cancel();
                         break;
                     case TelephonyManager.CALL_STATE_RINGING: //来电
-                        mPlayer.pause();
+                        if (mPlayer != null && mPlayer.isPlaying())
+                            mPlayer.pause();
+                        if (vibrator != null)
+                            vibrator.cancel();
                         break;
                     case TelephonyManager.CALL_STATE_OFFHOOK: //摘机（正在通话中）
                         break;

@@ -11,6 +11,8 @@ import java.io.Serializable;
 
 public class AlarmBean implements Serializable {
 
+    private static final long serialVersionUID = -7060210544600464481L;
+
     public static final int ALARM_NZ_XUNHUAN = 1;
     public static final int ALARM_NZ_DANCI = 2;
     public static final int ALARM_JISHIQI = 3;
@@ -112,4 +114,5 @@ public class AlarmBean implements Serializable {
     public void setMusicid(int musicid) {
         this.musicid = musicid;
     }
+
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.lidroid.xutils.exception.DbException;
+import com.sinoangel.saz_alarm.base.MyApplication;
 import com.sinoangel.saz_alarm.bean.AlarmBean;
 
 import java.util.Calendar;
@@ -16,6 +17,10 @@ import java.util.Calendar;
 public class AlarmBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        if (MyApplication.isDateChange)
+            return;
+
         long id = intent.getLongExtra("DATA", 0);
         AlarmBean ab;
         try {
@@ -35,6 +40,15 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
             if (!Boolean.parseBoolean(list[i - 1])) {
                 return;
             }
+//            Calendar calendar = Calendar.getInstance();
+//            int hour_now = calendar.get(Calendar.HOUR_OF_DAY);
+//            int min_now = calendar.get(Calendar.MINUTE);
+//            calendar.setTimeInMillis(ab.getTime());
+//            int hour_tag = calendar.get(Calendar.HOUR_OF_DAY);
+//            int min_tag = calendar.get(Calendar.MINUTE);
+//            if (hour_now != hour_tag || min_now != min_tag) {
+//                return;
+//            }
         } else {
             try {
                 ab.setStatus(AlarmBean.STATUS_OFF);
@@ -44,16 +58,10 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
             }
         }
 
-        Calendar calendar = Calendar.getInstance();
-        int hour_now = calendar.get(Calendar.HOUR_OF_DAY);
-        int min_now = calendar.get(Calendar.MINUTE);
-        calendar.setTimeInMillis(ab.getTime());
-        int hour_tag = calendar.get(Calendar.HOUR_OF_DAY);
-        int min_tag = calendar.get(Calendar.MINUTE);
-        if (hour_now != hour_tag || min_now != min_tag) {
-            return;
-        }
 
-        context.startActivity(new Intent(context, AlarmingActivity.class).putExtra("DATA",id));
+        Intent intent1 = new Intent(context, AlarmingActivity.class);
+        intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent1.putExtra("DATA", id);
+        context.startActivity(intent1);
     }
 }

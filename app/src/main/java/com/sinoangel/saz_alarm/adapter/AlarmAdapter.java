@@ -153,10 +153,6 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.ViewHolder> 
         long day = pross / 60 / 60 / 24;
         long hour = pross / 60 / 60 % 24;
         long minute = pross / 60 % 60;
-//        long second = pross % 60;
-//        String str2 = MyApplication.getInstance().getString(R.string.alarmstr2);
-//        String str3 = MyApplication.getInstance().getString(R.string.alarmstr3);
-//        String time;
         if (day != 0)
             return getFormatString(1, day, hour, minute, 0);
         else if (hour != 0)
@@ -171,10 +167,6 @@ public class AlarmAdapter extends RecyclerView.Adapter<AlarmAdapter.ViewHolder> 
         long hour = pross / 60 / 60 % 24;
         long minute = pross / 60 % 60;
         long second = pross % 60;
-//        String str1 = MyApplication.getInstance().getString(R.string.timerstr1);
-//        String str2 = MyApplication.getInstance().getString(R.string.timerstr2);
-//        String str3 = MyApplication.getInstance().getString(R.string.timerstr3);
-//        String time;
         if (hour != 0)
             return getFormatString(4, 0, hour, minute, second);
         else if (minute != 0)

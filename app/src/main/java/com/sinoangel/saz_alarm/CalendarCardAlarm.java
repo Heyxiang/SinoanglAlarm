@@ -68,49 +68,59 @@ public class CalendarCardAlarm extends View {
     public CalendarCardAlarm(Context context, CustomDate cd, OnCellClickListener listener) {
         super(context);
         if (cd != null)
-            upDate = cd;
-        mShowDate = new CustomDate();
+            mShowDate = cd;
         this.mCellClickListener = listener;
         init(context);
     }
 
     private void init(Context context) {
+//        mContext = context;
+        upDate = (CustomDate) mShowDate.clone();
+
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCirclePaint.setStyle(Paint.Style.FILL);
         touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
-
         initDate();
     }
 
     private void initDate() {
         if (mShowDate == null)
             mShowDate = new CustomDate();
-        //fillDate();
+        fillDate();
 
         //初始化传入 点击传入的日期
-        upDay = upDate.day + DateUtil.getWeekDayFromDate(upDate.year, upDate.month) - 1;
-        mCellClickListener.clickDate(upDate);
+        upDay = mShowDate.day + DateUtil.getWeekDayFromDate(mShowDate.year, mShowDate.month) - 1;
+        mCellClickListener.clickDate(mShowDate);
         // 刷新界面
         update();
     }
 
     private void fillDate() {
-        int monthDay = DateUtil.getCurrentMonthDay(); // 今天
+        //int monthDay = DateUtil.getCurrentMonthDay(); // 今天
+        int monthDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+//        int lastMonthDays = DateUtil.getMonthDays(mShowDate.year,
+//                mShowDate.month - 1); // 上个月的天数
         int currentMonthDays = DateUtil.getMonthDays(mShowDate.year,
                 mShowDate.month); // 当前月的天数
         int firstDayWeek = DateUtil.getWeekDayFromDate(mShowDate.year,
-                mShowDate.month);
+                mShowDate.month);//
         boolean isCurrentMonth = false;
+
+        if (!(mShowDate.day > currentMonthDays))
+            monthDay = mShowDate.day;
+
         if (DateUtil.isCurrentMonth(mShowDate)) {
             isCurrentMonth = true;
         }
+
+        monthDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
         int day = 0;
         for (int j = 0; j < TOTAL_ROW; j++) {
             rows[j] = new Row(j);
             for (int i = 0; i < TOTAL_COL; i++) {
                 int position = i + j * TOTAL_COL; // 单元格位置
-                Log.i("UP", position + "--" + upDay);
                 // 这个月的
                 if (position >= firstDayWeek
                         && position < firstDayWeek + currentMonthDays) {
@@ -123,20 +133,20 @@ public class CalendarCardAlarm extends View {
                         rows[j].cells[i] = new Cell(date, State.TODAY, i, j);
                     }
 
-                    if (isCurrentMonth && day < monthDay) { // 已经过去的日子
+                    if (isCurrentMonth && day < monthDay) { // 如果比这个月的今天要大，表示还没到
                         rows[j].cells[i] = new Cell(
                                 CustomDate.modifiDayForObject(mShowDate, day),
                                 State.UNREACH_DAY, i, j);
                     }
 
-                    // 过去一个月
-                }
 
+                }
                 if (position == upDay && upDate.month == mShowDate.month && upDate.year == mShowDate.year) {
                     rows[j].cells[i] = new Cell(
                             CustomDate.modifiDayForObject(mShowDate, day),
                             State.UP_DAY, i, j);
                 }
+
             }
         }
         mCellClickListener.changeDate(mShowDate);
@@ -196,26 +206,28 @@ public class CalendarCardAlarm extends View {
     private void measureClickCell(int col, int row) {
         if (col >= TOTAL_COL || row >= TOTAL_ROW)
             return;
-        if (mClickCell != null) {
-            rows[mClickCell.j].cells[mClickCell.i] = mClickCell;
-        }
+//        if (mClickCell != null) {
+//            rows[mClickCell.j].cells[mClickCell.i] = mClickCell;
+//        }
+
         if (rows[row] != null && rows[row].cells[col] != null) {
             mClickCell = new Cell(rows[row].cells[col].date,
                     rows[row].cells[col].state, rows[row].cells[col].i,
                     rows[row].cells[col].j);
 
             CustomDate date = rows[row].cells[col].date;
+            upDay = col + row * TOTAL_COL;
             date.week = col;
             CustomDate cd = new CustomDate();
-            if (date.year <= cd.year && date.month <= cd.month && date.day < cd.day)
+            if (date.year <= cd.year && date.month <= cd.month && date.day <= cd.day) {
                 AlarmUtils.showToast(R.string.wuxiaoriqi);
-            else {
-                upDay = col + row * TOTAL_COL;
+            } else {
+                upDate = (CustomDate) mShowDate.clone();
                 mCellClickListener.clickDate(date);
-                upDate = new CustomDate(mShowDate.year, mShowDate.month, mShowDate.day);
                 update();
             }
         }
+
     }
 
     /**
@@ -265,7 +277,7 @@ public class CalendarCardAlarm extends View {
         public void drawSelf(Canvas canvas) {
             switch (state) {
                 case TODAY: // 今天
-                    mTextPaint.setColor(Color.parseColor("#fffffe"));
+                    mTextPaint.setColor(Color.parseColor("#55fffffe"));
                     mCirclePaint.setColor(Color.parseColor("#a5a19e")); // 蓝色圆形
                     canvas.drawCircle((float) (mCellSpace * (i + 0.5)),
                             (float) ((j + 0.4) * mCellSpace), (float) (mCellSpace / 2.5),
@@ -308,7 +320,8 @@ public class CalendarCardAlarm extends View {
     public void leftSlide() {
         Calendar calendar = Calendar.getInstance();
         int month = calendar.get(Calendar.MONTH);
-        if (mShowDate.month > month + 1) {
+        int year = calendar.get(Calendar.YEAR);
+        if (mShowDate.year > year || mShowDate.month > month + 1) {
             if (mShowDate.month == 1) {
                 mShowDate.month = 12;
                 mShowDate.year -= 1;

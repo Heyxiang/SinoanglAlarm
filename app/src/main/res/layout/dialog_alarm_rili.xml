@@ -60,6 +60,18 @@
                 android:paddingLeft="@dimen/sw600_10dp"
                 android:paddingRight="@dimen/sw600_14dp">
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Su"
+                    android:textSize="@dimen/sw600_20sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -121,16 +133,6 @@
                     android:text="Sa"
                     android:textSize="@dimen/sw600_20sp" />
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Su"
-                    android:textSize="@dimen/sw600_20sp" />
             </LinearLayout>
 
             <RelativeLayout

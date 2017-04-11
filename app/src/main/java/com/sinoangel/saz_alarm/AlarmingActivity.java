@@ -176,7 +176,16 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
         iv_toff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPlayer.pause();
+                if (vibrator != null)
+                    vibrator.cancel();
+
+                if (mPlayer_p4 != null && mPlayer_p4.isPlaying()) {
+                    mPlayer_p4.stop();
+                }
+
+                if (mPlayer != null && mPlayer.isPlaying()) {
+                    mPlayer.stop();
+                }
                 finish();
             }
         });
@@ -194,12 +203,10 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
             vibrator.cancel();
 
         if (mPlayer_p4 != null) {
-            mPlayer_p4.stop();
             mPlayer_p4.release();
         }
 
         if (mPlayer != null) {
-            mPlayer.stop();
             mPlayer.release();
         }
         sendBroadcast(new Intent("SIONANGEL_ALARMING").putExtra("data", true));
@@ -242,9 +249,14 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
                     case TelephonyManager.CALL_STATE_IDLE: //空闲
                         if (mPlayer != null && !mPlayer.isPlaying())
                             mPlayer.start();
+                        if (vibrator != null)
+                            vibrator.cancel();
                         break;
                     case TelephonyManager.CALL_STATE_RINGING: //来电
-                        mPlayer.pause();
+                        if (mPlayer != null && mPlayer.isPlaying())
+                            mPlayer.pause();
+                        if (vibrator != null)
+                            vibrator.cancel();
                         break;
                     case TelephonyManager.CALL_STATE_OFFHOOK: //摘机（正在通话中）
                         break;

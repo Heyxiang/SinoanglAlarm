@@ -1,6 +1,7 @@
 package com.sinoangel.saz_alarm;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -177,18 +178,7 @@ public class AlarmActivity extends MyBaseActivity implements View.OnClickListene
         } catch (DbException e) {
             e.printStackTrace();
         }
-
-        try {
-            alab = AlarmUtils.getDbUtisl().findAll(AlarmBean.class);
-            if (alab != null)
-                for (AlarmBean ab : alab) {
-                    if (ab.getStatus() == AlarmBean.STATUS_ON && ab.getType() != AlarmBean.ALARM_JISHIQI)
-                        AlarmUtils.getAU().satrtAlarm(ab);
-                }
-        } catch (DbException e) {
-            e.printStackTrace();
-        }
-
+        AlarmUtils.getAU().nOFSoundService(true);
     }
 
     @Override
