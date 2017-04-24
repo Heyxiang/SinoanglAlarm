@@ -77,6 +77,7 @@ public class AlarmUtils {
 
                 public void onServiceConnected(ComponentName name, IBinder service) {
                     ssc = IAlarmAidlInterface.Stub.asInterface(service);
+                    AlarmUtils.outputLog("闹钟链接成功");
                     try {
                         List<AlarmBean> alab = AlarmUtils.getDbUtisl().findAll(AlarmBean.class);
                         if (alab != null)
@@ -88,8 +89,7 @@ public class AlarmUtils {
                     } catch (DbException e) {
                         e.printStackTrace();
                     }
-                    MyApplication.isDateChange = false;
-                    AlarmUtils.outputLog("闹钟链接成功");
+
                 }
             };
 
@@ -114,7 +114,7 @@ public class AlarmUtils {
             old.setTimeInMillis(ab.getTime());
             now.set(Calendar.HOUR_OF_DAY, old.get(Calendar.HOUR_OF_DAY));
             now.set(Calendar.MINUTE, old.get(Calendar.MINUTE));
-
+            now.set(Calendar.SECOND, 0);
             if (now.getTimeInMillis() < new Date().getTime())
                 now.add(Calendar.DAY_OF_MONTH, 1);
             ab.setTime(now.getTimeInMillis());
@@ -167,7 +167,7 @@ public class AlarmUtils {
                 old.setTimeInMillis(ab.getTime());
                 now.set(Calendar.HOUR_OF_DAY, old.get(Calendar.HOUR_OF_DAY));
                 now.set(Calendar.MINUTE, old.get(Calendar.MINUTE));
-
+                now.set(Calendar.SECOND, 0);
                 if (now.getTimeInMillis() < new Date().getTime())
                     now.add(Calendar.DAY_OF_MONTH, 1);
                 ab.setTime(now.getTimeInMillis());

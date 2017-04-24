@@ -40,15 +40,15 @@
         <activity
             android:name=".AlarmingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
             android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
             android:screenOrientation="userLandscape" />
 
         <activity
             android:name=".TimeringActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
-            android:launchMode="singleInstance"
             android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
             android:screenOrientation="userLandscape" />
 
         <activity
@@ -74,9 +74,7 @@
             </intent-filter>
         </receiver>
 
-        <service
-            android:name=".AlarmServer"
-            android:process=":alarm" />
+        <service android:name=".AlarmServer" />
     </application>
 
 </manifest>

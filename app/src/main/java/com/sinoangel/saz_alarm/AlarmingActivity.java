@@ -197,6 +197,21 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        if (vibrator != null)
+            vibrator.cancel();
+
+        if (mPlayer_p4 != null && mPlayer_p4.isPlaying()) {
+            mPlayer_p4.stop();
+        }
+
+        if (mPlayer != null && mPlayer.isPlaying()) {
+            mPlayer.stop();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (vibrator != null)
@@ -209,7 +224,6 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
         if (mPlayer != null) {
             mPlayer.release();
         }
-        sendBroadcast(new Intent("SIONANGEL_ALARMING").putExtra("data", true));
     }
 
     @Override

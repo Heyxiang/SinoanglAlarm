@@ -18,9 +18,6 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        if (MyApplication.isDateChange)
-            return;
-
         long id = intent.getLongExtra("DATA", 0);
         AlarmBean ab;
         try {
@@ -40,15 +37,7 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
             if (!Boolean.parseBoolean(list[i - 1])) {
                 return;
             }
-//            Calendar calendar = Calendar.getInstance();
-//            int hour_now = calendar.get(Calendar.HOUR_OF_DAY);
-//            int min_now = calendar.get(Calendar.MINUTE);
-//            calendar.setTimeInMillis(ab.getTime());
-//            int hour_tag = calendar.get(Calendar.HOUR_OF_DAY);
-//            int min_tag = calendar.get(Calendar.MINUTE);
-//            if (hour_now != hour_tag || min_now != min_tag) {
-//                return;
-//            }
+
         } else {
             try {
                 ab.setStatus(AlarmBean.STATUS_OFF);

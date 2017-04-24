@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class MyApplication extends Application {
     private static MyApplication instance;
-    public static boolean isDateChange;
+//    public static boolean isDateChange;
 
     public void onCreate() {
         super.onCreate();
@@ -44,7 +44,7 @@ public class MyApplication extends Application {
         registerReceiver(new AlarmBroadcastReceiver(), intentFilter);
 
         IntentFilter dateChangeFileter = new IntentFilter();
-        dateChangeFileter.addAction(Intent.ACTION_DATE_CHANGED);
+//        dateChangeFileter.addAction(Intent.ACTION_DATE_CHANGED);
         dateChangeFileter.addAction(Intent.ACTION_TIME_CHANGED);
         registerReceiver(new DateTimeChangeReceiver(), dateChangeFileter);
 
