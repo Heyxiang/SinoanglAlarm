@@ -24,8 +24,7 @@ public class DateTimeChangeReceiver extends BroadcastReceiver {
             if (alab != null)
                 for (AlarmBean ab : alab) {
                     if (ab.getStatus() == AlarmBean.STATUS_ON && ab.getType() != AlarmBean.ALARM_JISHIQI) {
-                        AlarmUtils.getAU().canelAlarm(ab);
-
+                        ab.checkTime();
                     }
                 }
         } catch (DbException e) {

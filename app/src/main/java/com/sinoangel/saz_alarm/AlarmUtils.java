@@ -125,7 +125,7 @@ public class AlarmUtils {
                 ssc.setOnceAlarm(ab.getId(), ab.getTime());
                 outputLog("单次 时间:" + formatLong(ab.getTime()));
             } else {
-                ssc.setRepeatAlarm(ab.getId(), ab.getTime());
+                ssc.setOnceAlarm(ab.getId(), ab.getTime());
                 outputLog("循环 时间:" + formatLong(ab.getTime()));
             }
         } catch (Exception e) {
@@ -141,43 +141,11 @@ public class AlarmUtils {
 
     //开始复苏闹钟
     public void satrtAlarm(AlarmBean ab) {
-        boolean isloop = ab.getLoop().indexOf("true") < 0;
-        if (isloop) {
-            if (new Date().getTime() > ab.getTime()) {
-                try {
-                    ab.setStatus(AlarmBean.STATUS_OFF);
-                    AlarmUtils.getDbUtisl().saveOrUpdate(ab);
-                } catch (DbException e) {
-                    e.printStackTrace();
-                }
-                outputLog("boot过期时间:" + formatLong(ab.getTime()));
-            } else {
-                try {
-                    ssc.setOnceAlarm(ab.getId(), ab.getTime());
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-                outputLog("boot单次 时间:" + formatLong(ab.getTime()));
-            }
-
-        } else {
-            Calendar now = Calendar.getInstance();
-            if (ab.getTime() < now.getTimeInMillis()) {
-                Calendar old = Calendar.getInstance();
-                old.setTimeInMillis(ab.getTime());
-                now.set(Calendar.HOUR_OF_DAY, old.get(Calendar.HOUR_OF_DAY));
-                now.set(Calendar.MINUTE, old.get(Calendar.MINUTE));
-                now.set(Calendar.SECOND, 0);
-                if (now.getTimeInMillis() < new Date().getTime())
-                    now.add(Calendar.DAY_OF_MONTH, 1);
-                ab.setTime(now.getTimeInMillis());
-            }
-            try {
-                ssc.setRepeatAlarm(ab.getId(), ab.getTime());
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-            outputLog("复苏循环 时间:" + formatLong(ab.getTime()));
+//        ab.checkTime();
+        try {
+            ssc.setOnceAlarm(ab.getId(), ab.getTime());
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
 
     }

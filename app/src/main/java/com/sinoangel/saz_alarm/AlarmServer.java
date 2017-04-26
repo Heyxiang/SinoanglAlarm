@@ -47,15 +47,13 @@ public class AlarmServer extends Service {
         public void setRepeatAlarm(long id, long startTime) throws RemoteException {
             Intent intent = new Intent("SINOALARM_START");
             intent.putExtra("DATA", id);
-//            intent.setData(Uri.parse("content://alarm/alarmid/" + id));
             PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmServer.this, (int) id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            manager.setRepeating(AlarmManager.RTC_WAKEUP, startTime, AlarmManager.INTERVAL_DAY, pendingIntent);
+            manager.set(AlarmManager.RTC_WAKEUP, startTime, pendingIntent);
         }
 
         @Override
         public void cancelAlarm(long id) throws RemoteException {
             Intent intent = new Intent("SINOALARM_START");
-//            intent.setData(Uri.parse("content://alarm/alarmid/" + id));
             PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmServer.this, (int) id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             if (pendingIntent != null)
                 manager.cancel(pendingIntent);

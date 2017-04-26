@@ -1,17 +1,24 @@
 package com.sinoangel.saz_alarm.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.text.TextUtils;
+
+import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.db.annotation.Id;
 import com.lidroid.xutils.db.annotation.NoAutoIncrement;
+import com.lidroid.xutils.exception.DbException;
+import com.sinoangel.saz_alarm.AlarmUtils;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Z on 2016/12/14.
  */
 
-public class AlarmBean implements Serializable {
-
-    private static final long serialVersionUID = -7060210544600464481L;
+public class AlarmBean implements Parcelable {
 
     public static final int ALARM_NZ_XUNHUAN = 1;
     public static final int ALARM_NZ_DANCI = 2;
@@ -35,6 +42,35 @@ public class AlarmBean implements Serializable {
     private int status = STATUS_ON;
     private int type;//计时器 还是闹钟
 
+
+    public AlarmBean() {
+    }
+
+    protected AlarmBean(Parcel in) {
+        id = in.readLong();
+        time = in.readLong();
+        isZD = in.readByte() != 0;
+        isXL = in.readByte() != 0;
+        vol = in.readInt();
+        loop = in.readString();
+        headpic = in.readInt();
+        musicid = in.readInt();
+        status = in.readInt();
+        type = in.readInt();
+    }
+
+    public static final Creator<AlarmBean> CREATOR = new Creator<AlarmBean>() {
+        @Override
+        public AlarmBean createFromParcel(Parcel in) {
+            return new AlarmBean(in);
+        }
+
+        @Override
+        public AlarmBean[] newArray(int size) {
+            return new AlarmBean[size];
+        }
+    };
+
     public long getId() {
         return id;
     }
@@ -50,6 +86,51 @@ public class AlarmBean implements Serializable {
     public void setTime(long time) {
         this.time = time;
     }
+
+    public void checkTime() {
+
+        Calendar newTime = Calendar.getInstance();
+
+        Calendar oldTime = Calendar.getInstance();
+        oldTime.setTimeInMillis(time);
+
+        if (type == ALARM_NZ_XUNHUAN) {
+
+            newTime.set(Calendar.HOUR_OF_DAY, oldTime.get(Calendar.HOUR_OF_DAY));
+            newTime.set(Calendar.MINUTE, oldTime.get(Calendar.MINUTE));
+            newTime.set(Calendar.SECOND, 0);
+
+            String[] week = loop.split(",");
+
+            while (true) {
+                int index = newTime.get(Calendar.DAY_OF_WEEK) - 1;
+                boolean isOn = Boolean.parseBoolean(week[index % 7]);
+                if (isOn) {
+                    if (newTime.getTimeInMillis() > new Date().getTime()) {
+                        time = newTime.getTimeInMillis();
+                        AlarmUtils.outputLog("check:" + AlarmUtils.formatLong(newTime.getTimeInMillis()));
+                        AlarmUtils.getAU().satrtAlarm(this);
+                        break;
+                    }
+                }
+                newTime.add(Calendar.DAY_OF_MONTH, 1);
+            }
+        } else {
+            if (oldTime.getTimeInMillis() < new Date().getTime()) {
+                status = STATUS_OFF;
+            } else {
+                AlarmUtils.getAU().satrtAlarm(this);
+            }
+        }
+
+        try {
+            AlarmUtils.getDbUtisl().saveOrUpdate(this);
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
     public boolean isZD() {
         return isZD;
@@ -115,4 +196,22 @@ public class AlarmBean implements Serializable {
         this.musicid = musicid;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeLong(time);
+        dest.writeByte((byte) (isZD ? 1 : 0));
+        dest.writeByte((byte) (isXL ? 1 : 0));
+        dest.writeInt(vol);
+        dest.writeString(loop);
+        dest.writeInt(headpic);
+        dest.writeInt(musicid);
+        dest.writeInt(status);
+        dest.writeInt(type);
+    }
 }
