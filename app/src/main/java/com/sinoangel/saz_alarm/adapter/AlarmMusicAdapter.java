@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.sinoangel.saz_alarm.AlarmingActivity;
 import com.sinoangel.saz_alarm.R;
 import com.sinoangel.saz_alarm.base.MyApplication;
 

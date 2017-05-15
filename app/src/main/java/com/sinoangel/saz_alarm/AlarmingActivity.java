@@ -39,6 +39,8 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
     private TextView tv_wait1, tv_wait5, tv_wait10, tv_time, tv_apm;
     private ImageView iv_toff;
     private AlarmBean ab;
+    private Timer timer;
+    private SurfaceHolder.Callback shc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +53,13 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
             return;
         }
 
-        final Window win = getWindow();
+        Window win = getWindow();
         win.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                 | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         win.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
                 | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
-        //获取电话通讯服务
+//        获取电话通讯服务
         TelephonyManager tpm = (TelephonyManager) this
                 .getSystemService(Context.TELEPHONY_SERVICE);
         //创建一个监听对象，监听电话状态改变事件
@@ -107,7 +109,12 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
                 afd_p3.close();
                 mPlayer.prepare();
                 mPlayer.setVolume(vol, vol);
-                mPlayer.start();
+                mPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        mp.start();
+                    }
+                });
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -124,11 +131,12 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
             e.printStackTrace();
         }
 
-        sv_media.getHolder().addCallback(new SurfaceHolder.Callback() {
+
+        shc = new SurfaceHolder.Callback() {
             //surfaceview销毁的时候
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
-
+                mPlayer_p4.setDisplay(null);
             }
 
             @Override
@@ -143,9 +151,12 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
                                        int height) {
 
             }
-        });
+        };
 
-        new Timer().schedule(new TimerTask() {
+        sv_media.getHolder().addCallback(shc);
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 Calendar calendar = Calendar.getInstance();
@@ -209,11 +220,13 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
         if (mPlayer != null && mPlayer.isPlaying()) {
             mPlayer.stop();
         }
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        timer.cancel();
         if (vibrator != null)
             vibrator.cancel();
 
@@ -224,6 +237,9 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
         if (mPlayer != null) {
             mPlayer.release();
         }
+
+        sv_media.getHolder().removeCallback(shc);
+
     }
 
     @Override

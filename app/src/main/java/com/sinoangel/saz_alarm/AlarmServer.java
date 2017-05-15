@@ -38,23 +38,23 @@ public class AlarmServer extends Service {
 
             Intent intent = new Intent("SINOALARM_START");
             intent.putExtra("DATA", id);
+//            intent.putExtra("TIME", startTime);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmServer.this, (int) id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             manager.set(AlarmManager.RTC_WAKEUP, startTime, pendingIntent);
-
         }
 
         @Override
         public void setRepeatAlarm(long id, long startTime) throws RemoteException {
-            Intent intent = new Intent("SINOALARM_START");
-            intent.putExtra("DATA", id);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmServer.this, (int) id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            manager.set(AlarmManager.RTC_WAKEUP, startTime, pendingIntent);
+//            Intent intent = new Intent("SINOALARM_START");
+//            intent.putExtra("DATA", id);
+//            PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmServer.this, (int) id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//            manager.set(AlarmManager.RTC_WAKEUP, startTime, pendingIntent);
         }
 
         @Override
         public void cancelAlarm(long id) throws RemoteException {
             Intent intent = new Intent("SINOALARM_START");
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmServer.this, (int) id, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmServer.this, (int) id, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             if (pendingIntent != null)
                 manager.cancel(pendingIntent);
         }
@@ -64,6 +64,5 @@ public class AlarmServer extends Service {
     public void onDestroy() {
         super.onDestroy();
         AlarmUtils.outputLog("闹钟服务结束");
-//        System.exit(0);
     }
 }

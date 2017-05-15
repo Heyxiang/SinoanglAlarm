@@ -2,15 +2,12 @@ package com.sinoangel.saz_alarm.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.text.TextUtils;
 
-import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.db.annotation.Id;
 import com.lidroid.xutils.db.annotation.NoAutoIncrement;
 import com.lidroid.xutils.exception.DbException;
 import com.sinoangel.saz_alarm.AlarmUtils;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 

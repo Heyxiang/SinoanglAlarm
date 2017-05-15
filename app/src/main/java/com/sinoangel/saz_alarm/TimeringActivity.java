@@ -33,6 +33,7 @@ public class TimeringActivity extends MyBaseActivity {
     private Vibrator vibrator;
     private AlarmBean ab;
     private ImageView iv_toff;
+    private SurfaceHolder.Callback shc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,11 +96,11 @@ public class TimeringActivity extends MyBaseActivity {
             e.printStackTrace();
         }
 
-        sv_media.getHolder().addCallback(new SurfaceHolder.Callback() {
+        shc = new SurfaceHolder.Callback() {
             //surfaceview销毁的时候
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
-
+                mPlayer_p4.setDisplay(null);
             }
 
             @Override
@@ -114,7 +115,9 @@ public class TimeringActivity extends MyBaseActivity {
                                        int height) {
 
             }
-        });
+        };
+
+        sv_media.getHolder().addCallback(shc);
 
         iv_toff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,6 +146,7 @@ public class TimeringActivity extends MyBaseActivity {
 
         if (vibrator != null)
             vibrator.cancel();
+        sv_media.getHolder().removeCallback(shc);
         sendBroadcast(new Intent("SIONANGEL_STOPAUDIO").putExtra("data", true));
     }
 

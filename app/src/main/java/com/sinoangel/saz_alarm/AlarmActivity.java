@@ -1,11 +1,14 @@
 package com.sinoangel.saz_alarm;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +19,8 @@ import com.sinoangel.saz_alarm.base.MyBaseActivity;
 import com.sinoangel.saz_alarm.bean.AlarmBean;
 import com.sinoangel.saz_alarm.dialog.DialogAlarmUtils;
 
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -34,17 +39,22 @@ public class AlarmActivity extends MyBaseActivity implements View.OnClickListene
     private ImageView iv_bulr;
     private View ll_noDate;
     private Timer timer = new Timer();
+    private ZRecyclerView.OnItenOnClickIF zVOIF;
     private TimerTask timerTask = new TimerTask() {
         @Override
         public void run() {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    aa.notifyDataSetChanged();
+                    WeakReference<AlarmActivity> weakReference = new WeakReference<>(AlarmActivity.this);
+                    weakReference.get().aa.notifyDataSetChanged();
                 }
             });
         }
     };
+    private static final String[] PermissionStr = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_PHONE_STATE};
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -72,7 +82,8 @@ public class AlarmActivity extends MyBaseActivity implements View.OnClickListene
         aa = new AlarmAdapter();
         rv_list.setAdapter(aa);
 
-        rv_list.setOnItemClick(new ZRecyclerView.OnItenOnClickIF() {
+
+        zVOIF = new ZRecyclerView.OnItenOnClickIF() {
 
             @Override
             public void onHead(int postion) {
@@ -170,7 +181,9 @@ public class AlarmActivity extends MyBaseActivity implements View.OnClickListene
                     });
                 }
             }
-        });
+        };
+
+        rv_list.setOnItemClick(zVOIF);
 
         timer.schedule(timerTask, 0, 1000);
         try {
@@ -178,7 +191,18 @@ public class AlarmActivity extends MyBaseActivity implements View.OnClickListene
         } catch (DbException e) {
             e.printStackTrace();
         }
-        AlarmUtils.getAU().nOFSoundService(true);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            List<String> lRequestPer = new ArrayList<>();
+            for (String per : PermissionStr) {
+                if (checkSelfPermission(per) != PackageManager.PERMISSION_GRANTED){
+                    lRequestPer.add(per);
+                }
+            }
+            if(lRequestPer.size() > 0) {
+                requestPermissions(lRequestPer.toArray(new String[lRequestPer.size()]), 0);
+            }
+        }
     }
 
     @Override
@@ -242,5 +266,11 @@ public class AlarmActivity extends MyBaseActivity implements View.OnClickListene
             iv_timer.setVisibility(View.VISIBLE);
             iv_alarm.setVisibility(View.VISIBLE);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timerTask.cancel();
     }
 }

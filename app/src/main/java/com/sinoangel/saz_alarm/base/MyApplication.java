@@ -26,15 +26,9 @@ import java.util.List;
  */
 public class MyApplication extends Application {
     private static MyApplication instance;
-//    public static boolean isDateChange;
 
     public void onCreate() {
         super.onCreate();
-
-        String processName = getProcessName(this,
-                android.os.Process.myPid());
-        if (!TextUtils.equals(BuildConfig.APPLICATION_ID, processName))
-            return;
 
         instance = this;
 
@@ -44,10 +38,10 @@ public class MyApplication extends Application {
         registerReceiver(new AlarmBroadcastReceiver(), intentFilter);
 
         IntentFilter dateChangeFileter = new IntentFilter();
-//        dateChangeFileter.addAction(Intent.ACTION_DATE_CHANGED);
         dateChangeFileter.addAction(Intent.ACTION_TIME_CHANGED);
         registerReceiver(new DateTimeChangeReceiver(), dateChangeFileter);
 
+        AlarmUtils.getAU().nOFSoundService(true);
     }
 
     /**
@@ -99,17 +93,17 @@ public class MyApplication extends Application {
         return dpi;
     }
 
-    public static String getProcessName(Context cxt, int pid) {
-        ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
-        if (runningApps == null) {
-            return null;
-        }
-        for (ActivityManager.RunningAppProcessInfo procInfo : runningApps) {
-            if (procInfo.pid == pid) {
-                return procInfo.processName;
-            }
-        }
-        return null;
-    }
+//    public static String getProcessName(Context cxt, int pid) {
+//        ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
+//        List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
+//        if (runningApps == null) {
+//            return null;
+//        }
+//        for (ActivityManager.RunningAppProcessInfo procInfo : runningApps) {
+//            if (procInfo.pid == pid) {
+//                return procInfo.processName;
+//            }
+//        }
+//        return null;
+//    }
 }

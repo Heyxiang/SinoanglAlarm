@@ -42,7 +42,7 @@ import java.util.Map;
  */
 
 public class AlarmUtils {
-    private Context mContext;
+//    private Context mContext;
     private static AlarmUtils au;
     private static DbUtils dbUtisl;
     private ServiceConnection connS;
@@ -57,7 +57,7 @@ public class AlarmUtils {
     }
 
     private AlarmUtils() {
-        mContext = MyApplication.getInstance();
+//        mContext = MyApplication.getInstance();
     }
 
     public static AlarmUtils getAU() {
@@ -67,7 +67,7 @@ public class AlarmUtils {
     }
 
     public void nOFSoundService(boolean flage) {
-        Intent AlarmService = new Intent(mContext, AlarmServer.class);
+        Intent AlarmService = new Intent(MyApplication.getInstance(), AlarmServer.class);
         if (connS == null)
             connS = new ServiceConnection() {
                 public void onServiceDisconnected(ComponentName name) {
@@ -94,9 +94,9 @@ public class AlarmUtils {
             };
 
         if (flage) {
-            boolean isBind = mContext.bindService(AlarmService, connS, mContext.BIND_AUTO_CREATE);
+            boolean isBind = MyApplication.getInstance().bindService(AlarmService, connS, MyApplication.getInstance().BIND_AUTO_CREATE);
         } else {
-            mContext.unbindService(connS);
+            MyApplication.getInstance().unbindService(connS);
         }
     }
 

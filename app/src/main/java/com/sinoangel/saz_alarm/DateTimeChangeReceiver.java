@@ -20,6 +20,7 @@ public class DateTimeChangeReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         // TODO Auto-generated method stub
         try {
+            AlarmUtils.outputLog("日期改变广播");
             List<AlarmBean> alab = AlarmUtils.getDbUtisl().findAll(AlarmBean.class);
             if (alab != null)
                 for (AlarmBean ab : alab) {

@@ -1,6 +1,5 @@
 package com.sinoangel.saz_alarm.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,11 +8,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.sinoangel.saz_alarm.base.MyApplication;
-import com.sinoangel.saz_alarm.bean.AlarmTimer;
 import com.sinoangel.saz_alarm.AlarmUtils;
 import com.sinoangel.saz_alarm.R;
+import com.sinoangel.saz_alarm.base.MyApplication;
 import com.sinoangel.saz_alarm.bean.AlarmBean;
+import com.sinoangel.saz_alarm.bean.AlarmTimer;
 
 import java.util.Calendar;
 import java.util.Date;

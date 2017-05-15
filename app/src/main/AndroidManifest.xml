@@ -24,12 +24,13 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <data
-                    android:host="AccountManageActivity"
-                    android:scheme="aone" />
+
             </intent-filter>
         </activity>
         <!--android:excludeFromRecents="true"-->
+        <!--<data-->
+        <!--android:host="AccountManageActivity"-->
+        <!--android:scheme="aone" />-->
         <activity
             android:name=".AlarmSetActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
