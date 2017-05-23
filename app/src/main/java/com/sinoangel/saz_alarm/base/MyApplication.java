@@ -1,24 +1,23 @@
 package com.sinoangel.saz_alarm.base;
 
-import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-import com.lidroid.xutils.exception.DbException;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.sinoangel.saz_alarm.AlarmBroadcastReceiver;
 import com.sinoangel.saz_alarm.AlarmUtils;
-import com.sinoangel.saz_alarm.BuildConfig;
 import com.sinoangel.saz_alarm.DateTimeChangeReceiver;
-import com.sinoangel.saz_alarm.bean.AlarmBean;
+import com.sinoangel.saz_alarm.R;
+import com.umeng.analytics.MobclickAgent;
 
 import java.lang.reflect.Method;
-import java.util.List;
 
 
 /**
@@ -26,7 +25,8 @@ import java.util.List;
  */
 public class MyApplication extends Application {
     private static MyApplication instance;
-
+    //谷歌统计
+    private Tracker mTracker;
     public void onCreate() {
         super.onCreate();
 
@@ -42,6 +42,9 @@ public class MyApplication extends Application {
         registerReceiver(new DateTimeChangeReceiver(), dateChangeFileter);
 
         AlarmUtils.getAU().nOFSoundService(true);
+
+        MobclickAgent.setScenarioType(MyApplication.this, MobclickAgent.EScenarioType.E_UM_NORMAL);
+        getDefaultTracker();
     }
 
     /**
@@ -93,17 +96,24 @@ public class MyApplication extends Application {
         return dpi;
     }
 
-//    public static String getProcessName(Context cxt, int pid) {
-//        ActivityManager am = (ActivityManager) cxt.getSystemService(Context.ACTIVITY_SERVICE);
-//        List<ActivityManager.RunningAppProcessInfo> runningApps = am.getRunningAppProcesses();
-//        if (runningApps == null) {
-//            return null;
-//        }
-//        for (ActivityManager.RunningAppProcessInfo procInfo : runningApps) {
-//            if (procInfo.pid == pid) {
-//                return procInfo.processName;
-//            }
-//        }
-//        return null;
-//    }
+    synchronized public Tracker getDefaultTracker() {
+        if (mTracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+            mTracker = analytics.newTracker(R.xml.global_tracker);
+        }
+        return mTracker;
+    }
+
+    public void sendAnalyticsActivity(String name) {
+        getDefaultTracker().setScreenName(name);
+        getDefaultTracker().send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
+    public void sendAnalyticsEvent(String type, String name) {
+        getDefaultTracker().send(new HitBuilders.EventBuilder()
+                .setCategory(type)
+                .setAction(name)
+                .build());
+    }
 }

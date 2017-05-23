@@ -455,4 +455,10 @@ public class AlarmSetActivity extends MyBaseActivity implements View.OnClickList
             iv_bulr.setVisibility(View.GONE);
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApplication.getInstance().sendAnalyticsActivity("闹钟设置页");
+    }
 }

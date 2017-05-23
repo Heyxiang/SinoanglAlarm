@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sino_Alarm</string>
+    <string name="app_name">怪物闹钟</string>
     <string name="delete_my_tag_message">确认删除吗</string>
 
     <string name="naozhongdonghua">闹钟动画</string>

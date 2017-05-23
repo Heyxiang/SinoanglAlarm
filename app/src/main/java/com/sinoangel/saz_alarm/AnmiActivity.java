@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.sinoangel.saz_alarm.base.MyApplication;
 import com.sinoangel.saz_alarm.base.MyBaseActivity;
 
 import java.io.IOException;
@@ -108,5 +109,9 @@ public class AnmiActivity extends MyBaseActivity implements View.OnClickListener
                 break;
         }
     }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApplication.getInstance().sendAnalyticsActivity("闹钟动画预览页");
+    }
 }

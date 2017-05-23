@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
+import com.umeng.analytics.MobclickAgent;
+
 /**
  * 父类说明：所有activity继承的父类
  */
@@ -37,6 +39,18 @@ public class MyBaseActivity extends Activity {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
             if (hasFocus)
                 getWindow().getDecorView().setSystemUiVisibility(flags);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
     }
 
 }

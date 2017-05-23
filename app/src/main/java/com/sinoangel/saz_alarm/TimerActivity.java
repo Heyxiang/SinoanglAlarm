@@ -7,6 +7,8 @@ import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import com.sinoangel.saz_alarm.base.MyApplication;
 import com.sinoangel.saz_alarm.base.MyBaseActivity;
 import com.sinoangel.saz_alarm.bean.AlarmBean;
 import java.util.Calendar;
@@ -163,5 +165,11 @@ public class TimerActivity extends MyBaseActivity implements View.OnClickListene
             time += timevar;
         tv_time_val.setText(formatTime(time));
         zCircularSeekBar.setPross(val);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApplication.getInstance().sendAnalyticsActivity("计时器设定页");
     }
 }

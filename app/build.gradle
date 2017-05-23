@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     signingConfigs {
         config {
-            keyAlias 'qwez'
-            keyPassword 'alarmsn'
-            storeFile file('D:/GitHab_sinoagelApp/SinoanglAlarm/app/appkey.jks')
-            storePassword 'alarmsn'
+            keyAlias 'xingnuowuxian'
+            keyPassword 'xnwxhuz'
+            storeFile file('Keystore/sino_app_key.jks')
+            storePassword 'snlazks'
         }
     }
     compileSdkVersion 24
@@ -15,8 +16,8 @@ android {
         applicationId "com.sinoangel.saz_alarm"
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 9
-        versionName "1.1.4"
+        versionCode 10
+        versionName "1.1.5"
     }
     buildTypes {
         release {
@@ -37,4 +38,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile(name: 'android-gif-drawable-master-release', ext: 'aar')
     compile files('libs/xUtils-2.6.14.jar')
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.google.android.gms:play-services-analytics:9.0.0'
 }

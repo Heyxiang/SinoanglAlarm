@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.lidroid.xutils.exception.DbException;
+import com.sinoangel.saz_alarm.base.MyApplication;
 import com.sinoangel.saz_alarm.base.MyBaseActivity;
 import com.sinoangel.saz_alarm.bean.AlarmBean;
 
@@ -184,5 +185,11 @@ public class TimeringActivity extends MyBaseActivity {
         } catch (DbException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApplication.getInstance().sendAnalyticsActivity("计时器响铃页");
     }
 }

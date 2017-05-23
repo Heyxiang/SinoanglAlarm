@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.lidroid.xutils.exception.DbException;
 import com.sinoangel.saz_alarm.adapter.AlarmAdapter;
+import com.sinoangel.saz_alarm.base.MyApplication;
 import com.sinoangel.saz_alarm.base.MyBaseActivity;
 import com.sinoangel.saz_alarm.bean.AlarmBean;
 import com.sinoangel.saz_alarm.dialog.DialogAlarmUtils;
@@ -272,5 +273,11 @@ public class AlarmActivity extends MyBaseActivity implements View.OnClickListene
     protected void onDestroy() {
         super.onDestroy();
         timerTask.cancel();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApplication.getInstance().sendAnalyticsActivity("闹钟首页");
     }
 }

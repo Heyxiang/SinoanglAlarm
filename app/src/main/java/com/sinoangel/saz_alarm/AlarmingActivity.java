@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.lidroid.xutils.exception.DbException;
 import com.sinoangel.saz_alarm.adapter.AlarmMusicAdapter;
+import com.sinoangel.saz_alarm.base.MyApplication;
 import com.sinoangel.saz_alarm.base.MyBaseActivity;
 import com.sinoangel.saz_alarm.bean.AlarmBean;
 
@@ -294,5 +295,9 @@ public class AlarmingActivity extends MyBaseActivity implements View.OnClickList
         }
 
     }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApplication.getInstance().sendAnalyticsActivity("正在响铃页面");
+    }
 }

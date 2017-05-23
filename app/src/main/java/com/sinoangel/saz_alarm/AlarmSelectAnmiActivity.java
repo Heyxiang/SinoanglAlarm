@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.sinoangel.saz_alarm.base.MyApplication;
 import com.sinoangel.saz_alarm.base.MyBaseActivity;
 
 
@@ -204,5 +205,11 @@ public class AlarmSelectAnmiActivity extends MyBaseActivity implements View.OnCl
                 startActivity(intent);
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApplication.getInstance().sendAnalyticsActivity("选择闹钟动画");
     }
 }

@@ -15,7 +15,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--android:excludeFromRecents="true"-->
+        <!-- 友盟 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="591c3062c62dca569600145b"></meta-data>
+
         <activity
             android:name=".AlarmActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
