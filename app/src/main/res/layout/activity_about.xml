@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/alarm_bk"
+    tools:context="com.sinoangel.sazalarm.AboutActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="48dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/banner"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="@dimen/sw600_360dp"
+                android:layout_height="@dimen/sw600_300dp"
+                android:background="@drawable/round_bk"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sw600_180dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/about_img1" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_ico1"
+                        android:layout_width="@dimen/sw600_100dp"
+                        android:layout_height="@dimen/sw600_100dp"
+                        android:src="@mipmap/about_ico1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/sw600_5dp"
+                        android:layout_marginTop="@dimen/sw600_10dp"
+                        android:layout_toRightOf="@+id/iv_ico1"
+                        android:text="Monster Camera"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+
+                    <TextView
+                        android:id="@+id/btn_monster_camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/btn_bk"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/sw600_45dp"
+                        android:paddingRight="@dimen/sw600_45dp"
+                        android:text="Download"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_23sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/sw600_360dp"
+                android:layout_height="@dimen/sw600_300dp"
+                android:background="@drawable/round_bk"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sw600_180dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/about_img2" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_ico2"
+                        android:layout_width="@dimen/sw600_100dp"
+                        android:layout_height="@dimen/sw600_100dp"
+                        android:src="@mipmap/about_ico2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/sw600_5dp"
+                        android:layout_marginTop="@dimen/sw600_10dp"
+                        android:layout_toRightOf="@+id/iv_ico2"
+                        android:text="Monster Alarm"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+
+                    <TextView
+                        android:id="@+id/btn_monster_alarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/btn_bk"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/sw600_45dp"
+                        android:paddingRight="@dimen/sw600_45dp"
+                        android:text="Download"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_23sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/sw600_360dp"
+                android:layout_height="@dimen/sw600_300dp"
+                android:background="@drawable/round_bk"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sw600_180dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/about_img3" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_ico3"
+                        android:layout_width="@dimen/sw600_100dp"
+                        android:layout_height="@dimen/sw600_100dp"
+                        android:src="@mipmap/about_ico3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/sw600_5dp"
+                        android:layout_marginTop="@dimen/sw600_10dp"
+                        android:layout_toRightOf="@+id/iv_ico3"
+                        android:text="Monster Soc"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_20sp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/btn_bk"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/sw600_45dp"
+                        android:paddingRight="@dimen/sw600_45dp"
+                        android:text="GO"
+                        android:textColor="@color/font_white"
+                        android:textSize="@dimen/sw600_23sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/tv_yinsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:padding="@dimen/sw600_5dp"
+        android:text="@string/yinsizhengce"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/sw600_15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/btn_monster_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/btn_bk_w"
+        android:gravity="center"
+        android:paddingLeft="@dimen/sw600_45dp"
+        android:paddingRight="@dimen/sw600_45dp"
+        android:text="Download!"
+        android:textColor="@color/font_white"
+        android:textSize="@dimen/sw600_23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sinoangel.saz_alarm">
+    package="com.sinoangel.sazalarm">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 必选 -->
@@ -15,10 +15,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <!-- 友盟 -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="591c3062c62dca569600145b"></meta-data>
+            android:value="591c3062c62dca569600145b" />
 
         <activity
             android:name=".AlarmActivity"
@@ -27,41 +28,37 @@
             android:screenOrientation="userLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--android:excludeFromRecents="true"-->
-        <!--<data-->
-        <!--android:host="AccountManageActivity"-->
-        <!--android:scheme="aone" />-->
+        <!-- android:excludeFromRecents="true" -->
+        <!-- <data -->
+        <!-- android:host="AccountManageActivity" -->
+        <!-- android:scheme="aone" /> -->
         <activity
             android:name=".AlarmSetActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
             android:launchMode="singleTask"
             android:screenOrientation="userLandscape"
             android:theme="@style/Theme.picker" />
-
         <activity
             android:name=".AlarmingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="userLandscape" />
-
         <activity
             android:name=".TimeringActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:screenOrientation="userLandscape" />
-
         <activity
             android:name=".AlarmSelectAnmiActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
             android:launchMode="singleTask"
             android:screenOrientation="userLandscape" />
-
         <activity
             android:name=".TimerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|keyboard"
@@ -80,6 +77,8 @@
         </receiver>
 
         <service android:name=".AlarmServer" />
+
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

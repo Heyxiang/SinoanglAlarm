@@ -51,5 +51,9 @@
     <string name="alarm_ls12">Merry Christmas</string>
     <string name="alarm_ls13">Roll Over</string>
     <string name="alarm_ls14">Pop! Go！</string>
+    <string name="defult">默认即为当天日期</string>
+    <string name="yinsizhengce"><u>سياسة الخصوصية</u></string>
+    <string name="download">Downloading</string>
+    <string name="more">More</string>
 
 </resources>

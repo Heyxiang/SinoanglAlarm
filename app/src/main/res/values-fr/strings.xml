@@ -52,4 +52,8 @@
     <string name="alarm_ls6">Lovely Day</string>
     <string name="alarm_ls8">Dream Of A Secret</string>
     <string name="alarm_ls9">Let\'s Have Some Fun</string>
+    <string name="defult">默认即为当天日期</string>
+    <string name="yinsizhengce"><u>Règles de confidentialité</u></string>
+    <string name="download">Downloading</string>
+    <string name="more">More</string>
 </resources>

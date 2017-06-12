@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
 
-        <com.sinoangel.saz_alarm.ZCircularSeekBar
+        <com.sinoangel.sazalarm.ZCircularSeekBar
             android:id="@+id/zCircularSeekBar"
             android:layout_width="@dimen/sw600_390dp"
             android:layout_height="@dimen/sw600_390dp" />

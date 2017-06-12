@@ -34,6 +34,7 @@
 
     <string name="addsucce">Add success!</string>
     <string name="wuxiaoriqi">Invalid date!</string>
+    <string name="defult">默认即为当天日期</string>
 
 
     <!--铃声-->
@@ -51,5 +52,9 @@
     <string name="alarm_ls12">Merry Christmas</string>
     <string name="alarm_ls13">Roll Over</string>
     <string name="alarm_ls14">Pop! Go！</string>
+
+    <string name="yinsizhengce"><u>Privacy Policy</u></string>
+    <string name="more">More</string>
+    <string name="download">Downloading</string>
 
 </resources>

@@ -18,7 +18,7 @@
             android:layout_height="@dimen/sw600_130dp"
             android:background="@drawable/btn_alarm_timer" />
 
-        <com.sinoangel.saz_alarm.ZRecyclerView
+        <com.sinoangel.sazalarm.ZRecyclerView
             android:id="@+id/rv_list"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -83,6 +83,24 @@
         </LinearLayout>
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/rl_more"
+        android:layout_width="@dimen/sw600_123dp"
+        android:layout_height="@dimen/sw600_130dp"
+        android:layout_marginLeft="@dimen/sw600_15dp"
+        android:background="@mipmap/more">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/more"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/font_white"
+            android:layout_marginTop="@dimen/sw600_5dp"
+            android:textSize="@dimen/sw600_20sp" />
+
+
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/iv_bulr"
@@ -90,4 +108,5 @@
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:visibility="gone" />
+
 </RelativeLayout>

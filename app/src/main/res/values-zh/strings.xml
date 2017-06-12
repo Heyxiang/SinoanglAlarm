@@ -51,5 +51,9 @@
     <string name="alarm_ls12">圣诞变奏曲</string>
     <string name="alarm_ls13">翻滚吧，阿信</string>
     <string name="alarm_ls14">加油起床冲冲冲!</string>
+    <string name="defult">默认即为当天日期</string>
+    <string name="yinsizhengce"><u>隐私政策</u></string>
+    <string name="download">Downloading</string>
+    <string name="more">More</string>
 
 </resources>
